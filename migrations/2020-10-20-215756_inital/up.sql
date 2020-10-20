@@ -1,0 +1,9 @@
+CREATE TABLE users (
+  id TEXT NOT NULL PRIMARY KEY,
+  name TEXT NOT NULL
+);
+CREATE TABLE posts (
+  id TEXT NOT NULL PRIMARY KEY,
+  title TEXT NOT NULL,
+  user_id TEXT NOT NULL REFERENCES users (id)
+);
