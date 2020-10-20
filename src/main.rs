@@ -22,8 +22,8 @@ fn main() {
   use diesel::dsl::count;
 
   let query = users::table
-    .select((users::all_columns, count(posts::user_id)))
-    .left_join(posts::table.on(posts::user_id.eq(posts::id)))
+    .select((users::id, users::name, count(posts::user_id)))
+    .left_join(posts::table.on(users::id.eq(posts::user_id)))
     .group_by(users::id);
 
   let r = query.load::<(User, i64)>(&conn).unwrap();
