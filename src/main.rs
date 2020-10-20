@@ -21,11 +21,10 @@ fn main() {
   use crate::schema::*;
   use diesel::dsl::count;
 
-  let select = (users::all_columns, count(posts::user_id));
-
   let query = users::table
-    .select(select)
-    .left_join(posts::table.on(posts::user_id.eq(posts::id)));
+    .select((users::all_columns, count(posts::user_id)))
+    .left_join(posts::table.on(posts::user_id.eq(posts::id)))
+    .group_by(users::id);
 
   let r = query.load::<(User, i64)>(&conn).unwrap();
 
