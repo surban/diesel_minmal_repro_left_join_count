@@ -28,5 +28,5 @@ fn main() {
 
   let r = query.load::<(User, i64)>(&conn).unwrap();
 
-  println!("{}", r)
+  println!("{:#?}", r)
 }
