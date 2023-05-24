@@ -1,4 +1,6 @@
-table! {
+// @generated automatically by Diesel CLI.
+
+diesel::table! {
     posts (id) {
         id -> Text,
         title -> Text,
@@ -6,16 +8,16 @@ table! {
     }
 }
 
-table! {
+diesel::table! {
     users (id) {
         id -> Text,
         name -> Text,
     }
 }
 
-joinable!(posts -> users (user_id));
+diesel::joinable!(posts -> users (user_id));
 
-allow_tables_to_appear_in_same_query!(
+diesel::allow_tables_to_appear_in_same_query!(
     posts,
     users,
 );

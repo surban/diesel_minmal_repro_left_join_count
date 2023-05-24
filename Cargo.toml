@@ -2,10 +2,10 @@
 name = "diesel_minmal_repro_left_join_count"
 version = "0.1.0"
 authors = ["Luca Casonato <lucacasonato@yahoo.com>"]
-edition = "2018"
+edition = "2021"
 
 [dependencies]
-diesel = { version = "1.4.5", features = ["postgres"] }
+diesel = { version = "2", features = ["postgres"] }
 dotenv = "0.15.0"
 
 
